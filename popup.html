@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Focus Wellbeing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="popup-page">
+  <main class="popup">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">◔</span>
+      <div><h1>Focus Wellbeing</h1><p id="period-title">Today, so far</p></div>
+      <span class="privacy-badge"><i></i> Local</span>
+    </div>
+    <section class="popup-focus">
+      <div class="popup-focus-top"><span>DAILY FOCUS GOAL</span><strong id="focus-goal">2h target</strong></div>
+      <strong id="focus-value" class="popup-focus-value">0m focused</strong>
+      <div class="popup-focus-track"><span id="focus-progress"></span></div>
+      <div class="popup-focus-bottom"><span id="focus-remaining">2h remaining</span><button id="focus-action">Plan a session →</button></div>
+    </section>
+    <div class="popup-tabs">
+      <button data-popup-period="today" class="active">Today</button>
+      <button data-popup-period="session">Session</button>
+    </div>
+    <div id="summary" class="popup-summary" aria-label="Usage summary"></div>
+    <section class="popup-section">
+      <div class="popup-section-heading"><p class="eyebrow">TOP WEBSITES</p></div>
+      <ol id="top-sites" class="top-sites"></ol>
+    </section>
+    <section class="quick-classify">
+      <p class="eyebrow">CURRENT WEBSITE</p>
+      <strong id="current-domain">Loading…</strong>
+      <span id="current-category" class="site-category"></span>
+      <div class="choice-row"><button data-category="productive" class="productive-action">Productive</button><button data-category="distracting" class="distracting-action">Distracting</button></div>
+    </section>
+    <section class="timer-card">
+      <div class="popup-timer-top"><p class="eyebrow">DAILY WEBSITE LIMIT</p><strong id="timer-status">Loading…</strong></div>
+      <div class="popup-timer-actions"><input id="timer-minutes" type="number" min="1" max="1440" placeholder="Minutes" aria-label="Daily time limit"><button id="save-timer" class="primary">Set</button></div>
+      <div class="popup-links"><button id="add-time">+15 min</button><button id="remove-timer">Remove limit</button></div>
+    </section>
+    <p id="status-message" class="status-message" role="status"></p>
+    <button id="open" class="primary open-dashboard">Open dashboard <span>→</span></button>
+  </main>
+  <script src="focus-ledger-core.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

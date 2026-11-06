@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080909">
+  <title>Focus Wellbeing — Overview</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+  <main class="dashboard">
+    <header class="topbar">
+      <a class="brand" href="#overview" aria-label="Focus Wellbeing overview">
+        <span class="brand-mark" aria-hidden="true">◔</span>
+        <span class="brand-name">Focus Wellbeing</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="active" href="#overview">Overview</a>
+        <a href="#planner">Planner</a>
+        <a href="#goals">Goals</a>
+      </nav>
+      <div class="top-actions">
+        <span class="privacy-badge"><i></i> Local only</span>
+        <label class="theme-control" aria-label="Dashboard theme">
+          <span class="sr-only">Theme</span>
+          <select id="theme" title="Theme">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="system">System</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <section id="overview" class="welcome-row">
+      <div class="welcome-copy">
+        <p class="eyebrow">YOUR DAILY PLAN</p>
+        <h1>Stay Focused Today</h1>
+      </div>
+      <div class="encouragement" aria-live="polite">
+        <span class="encouragement-icon" aria-hidden="true">✦</span>
+        <div><strong id="motivation">A little focus goes a long way.</strong><span id="motivation-detail">Your activity stays private on this device.</span></div>
+      </div>
+      <div class="welcome-actions">
+        <button id="start-session" class="primary start-session">＋ <span>Start focus</span></button>
+        <a class="customize-link" href="#goals">Goals &amp; settings</a>
+      </div>
+    </section>
+
+    <section class="day-strip" aria-label="Selected day summary">
+      <div class="date-tile"><strong id="date-day">—</strong><span id="date-month">—</span></div>
+      <div class="day-copy"><span>Your daily goal</span><strong id="day-goal-summary">0m / 2h focused</strong></div>
+      <span class="day-divider"></span>
+      <div class="day-copy day-sessions"><span>Focus sessions</span><strong id="day-session-summary">0 completed</strong></div>
+      <div class="day-navigation">
+        <button id="previous-day" aria-label="Previous day">←</button>
+        <button id="next-day" aria-label="Next day">→</button>
+      </div>
+    </section>
+
+    <section class="metric-grid" aria-label="Daily focus analytics">
+      <article class="metric-card deep-work">
+        <div class="metric-heading"><span>Deep Work Time</span><span class="metric-symbol" aria-hidden="true">◒</span></div>
+        <strong id="deep-work-value" class="metric-value">0m</strong>
+        <div class="metric-footer"><span id="deep-work-footnote">Productive browsing today</span><button id="deep-work-action" class="inline-action">Start a session <span>→</span></button></div>
+      </article>
+      <article class="metric-card attention">
+        <div class="metric-heading"><span>Attention Quality</span><span class="metric-symbol" aria-hidden="true">◌</span></div>
+        <strong id="attention-value" class="metric-value">0%</strong>
+        <div class="metric-footer"><span>Productive / tracked active time</span><span id="attention-period">Today</span></div>
+        <div class="metric-progress" role="progressbar" aria-label="Attention quality" aria-valuemin="0" aria-valuemax="100"><span id="attention-bar"></span></div>
+      </article>
+      <article class="metric-card stability">
+        <div class="metric-heading"><span>Focus Stability</span><span id="stability-score" class="score-pill">No activity yet</span></div>
+        <div id="hour-chart" class="hour-chart" role="img" aria-label="Hourly productive browsing activity"></div>
+        <div class="chart-foot"><span>Productive activity by hour</span><span id="peak-hour">No peak yet</span></div>
+      </article>
+    </section>
+
+    <section id="planner" class="timeline-panel">
+      <div class="timeline-heading">
+        <div class="timeline-title"><h2>Daily Timeline</h2><span class="timeline-divider"></span><span id="timeline-summary">No focus sessions today</span></div>
+        <button id="add-event" class="text-button">Add a session</button>
+      </div>
+      <div class="timeline-hours" aria-hidden="true">
+        <span>8 AM</span><span>9 AM</span><span>10 AM</span><span>11 AM</span><span>12 PM</span><span>1 PM</span><span>2 PM</span><span>3 PM</span><span>4 PM</span><span>5 PM</span><span>6 PM</span><span>7 PM</span><span>8 PM</span>
+      </div>
+      <div id="timeline-chart" class="timeline-chart" aria-label="Hourly website activity"></div>
+      <div id="session-list" class="session-list"></div>
+      <p id="timeline-empty" class="empty-note" hidden>Tracked activity and focus sessions will appear here as you use your browser.</p>
+    </section>
+
+    <section id="goals" class="goals-panel">
+      <div class="section-title-row">
+        <div><p class="eyebrow">BUILD A ROUTINE</p><h2>Your focus commitment</h2></div>
+        <a class="text-button" href="#reports">View reports</a>
+      </div>
+      <div class="goal-layout">
+        <div class="goal-progress">
+          <div class="goal-ring" id="goal-ring" role="progressbar" aria-label="Daily focus goal progress" aria-valuemin="0" aria-valuemax="100">
+            <div class="goal-ring-center"><strong id="goal-percent">0%</strong><span>complete</span></div>
+          </div>
+          <div class="goal-details"><span class="muted">Daily productive target</span><strong id="goal-completion">0m of 2h</strong><span id="goal-remaining">2h remaining</span></div>
+        </div>
+        <div class="goal-setting">
+          <label for="goal-minutes">Daily goal <span>(minutes)</span></label>
+          <div class="goal-input-row"><input id="goal-minutes" type="number" min="1" max="1440" step="1"><button id="save-goal" class="secondary-button">Save goal</button></div>
+          <div class="goal-presets" aria-label="Goal presets">
+            <button data-goal="120">2 hours</button><button data-goal="180">3 hours</button><button data-goal="240">4 hours</button>
+          </div>
+        </div>
+        <div class="goal-facts">
+          <div><span>Completed sessions</span><strong id="completed-sessions">0</strong></div>
+          <div><span>Distraction time</span><strong id="distraction-time">0m</strong></div>
+          <div><span>Daily streak</span><strong id="daily-streak">0 days</strong></div>
+        </div>
+      </div>
+      <div id="insights" class="insights" aria-label="Local productivity insights"></div>
+    </section>
+
+    <section id="reports" class="reports-panel">
+      <div class="section-title-row report-heading">
+        <div><p class="eyebrow">YOUR ACTIVITY</p><h2>Time balance</h2></div>
+        <div class="period-tabs" role="tablist" aria-label="Report period">
+          <button data-period="session">Session</button><button data-period="today" class="active">Today</button><button data-period="week">This week</button><button data-period="custom">Custom</button>
+        </div>
+      </div>
+      <div id="custom-range" class="date-range" hidden>
+        <label>From <input type="date" id="range-start"></label>
+        <label>To <input type="date" id="range-end"></label>
+        <button id="apply-range" class="secondary-button">Apply range</button>
+      </div>
+      <p id="period-headline" class="report-summary">No active browser time recorded in this period.</p>
+      <p id="data-warning" class="data-warning" role="status" hidden></p>
+      <div class="report-grid">
+        <div id="category-cards" class="category-grid"></div>
+        <div class="balance-card">
+          <div id="donut" class="donut"><span id="chart-total">No data</span></div>
+          <ul id="chart-legend" class="chart-legend"></ul>
+        </div>
+      </div>
+      <div class="domain-section">
+        <div class="section-title-row"><div><p class="eyebrow">BREAKDOWN</p><h3>Top websites</h3></div><span class="muted">Active browser time</span></div>
+        <ol id="domains" class="domain-list"></ol>
+      </div>
+    </section>
+
+    <details class="settings-panel">
+      <summary><span><span class="eyebrow">PERSONALIZE</span><strong>Website categories &amp; daily limits</strong></span><span class="summary-chevron">⌄</span></summary>
+      <p class="muted settings-intro">Categories and limits are stored locally. A more specific subdomain rule takes precedence.</p>
+      <div class="settings-grid">
+        <section class="settings-card">
+          <p class="eyebrow">CLASSIFICATION</p><h3>Website categories</h3>
+          <div class="rules">
+            <label><span class="rule-label productive-label">Productive</span><textarea id="productive" spellcheck="false"></textarea></label>
+            <label><span class="rule-label distracting-label">Distracting</span><textarea id="distracting" spellcheck="false"></textarea></label>
+            <label><span class="rule-label neutral-label">Neutral</span><textarea id="neutral" spellcheck="false"></textarea></label>
+          </div>
+          <button id="save-rules" class="secondary-button">Save categories</button>
+        </section>
+        <section class="settings-card">
+          <p class="eyebrow">DAILY LIMITS</p><h3>Website time limits</h3>
+          <p class="muted">Get one local notification when a site reaches its daily allowance.</p>
+          <form id="limit-form" class="limit-form">
+            <input id="limit-domain" placeholder="example.com" aria-label="Website domain" required>
+            <input id="limit-minutes" type="number" min="1" max="1440" placeholder="Minutes" aria-label="Daily minutes" required>
+            <button class="secondary-button" type="submit">Add limit</button>
+          </form>
+          <ul id="limits" class="limit-list"></ul>
+        </section>
+      </div>
+      <div class="data-actions"><span class="muted">History stays in this browser.</span><button id="clear" class="danger-button">Clear local history</button></div>
+    </details>
+
+    <dialog id="session-dialog" class="session-dialog">
+      <form id="session-form" method="dialog">
+        <div class="dialog-heading"><div><p class="eyebrow">FOCUS SESSION</p><h2>Make time for what matters</h2></div><button id="close-session" class="icon-button" type="button" aria-label="Close">×</button></div>
+        <label class="form-label" for="session-duration">Session duration</label>
+        <div class="duration-row"><input id="session-duration" type="number" value="25" min="1" max="480" required><span>minutes</span></div>
+        <div class="site-picks">
+          <label>Productive websites<select id="session-productive" multiple size="4"></select></label>
+          <label>Distraction websites<select id="session-distracting" multiple size="4"></select></label>
+        </div>
+        <label class="check-row"><input id="session-restrictions" type="checkbox"><span>Show a reminder before opening selected distracting websites</span></label>
+        <label class="check-row strict-option" hidden><input id="session-strict" type="checkbox"><span>Strict mode <small>Add a five-second pause before continuing. You can always leave.</small></span></label>
+        <p id="session-error" class="form-error" role="alert"></p>
+        <button class="primary dialog-submit" type="submit">Start focus session</button>
+      </form>
+    </dialog>
+
+    <footer><span>Focus Wellbeing</span><span>Private by design · Your data never leaves this browser</span></footer>
+  </main>
+  <script src="focus-ledger-core.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "Focus Wellbeing",
+  "version": "0.2.0",
+  "description": "Local-first browser time tracking and focus sessions.",
+  "permissions": ["tabs", "idle", "storage", "notifications", "alarms"],
+  "background": { "scripts": ["focus-ledger-core.js", "background.js"], "persistent": true },
+  "icons": { "48": "icon.svg", "96": "icon.svg" },
+  "browser_action": { "default_title": "Focus Wellbeing", "default_popup": "popup.html", "default_icon": { "48": "icon.svg", "96": "icon.svg" } },
+  "options_ui": { "page": "dashboard.html", "open_in_tab": true },
+  "browser_specific_settings": { "gecko": { "id": "focus-ledger@example.local", "data_collection_permissions": { "required": ["none"] } } }
+}
